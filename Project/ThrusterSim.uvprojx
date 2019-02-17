@@ -10,6 +10,7 @@
       <TargetName>推进装置模拟器</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -539,11 +540,6 @@
               <FileName>Modbus_svr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Modbus_svr.c</FilePath>
-            </File>
-            <File>
-              <FileName>SBG_Comm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\SBG_Comm.c</FilePath>
             </File>
           </Files>
         </Group>

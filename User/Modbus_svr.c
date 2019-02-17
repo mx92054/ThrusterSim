@@ -5,8 +5,9 @@
 #define ADDRESS   	wReg[100]						//µ±«∞’æµÿ÷∑
 #define BAUDRATE		wReg[101]
 
-extern short wReg[] ;
-extern short coils[] ;
+short wReg[200] ;
+short coils[200] ;
+
 u8		bSaved = 0 ;
 
 static u8		buffer[512] ;					//ª∫≥Â≥ÿ
