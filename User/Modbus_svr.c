@@ -327,7 +327,9 @@ static u8	Modbus_Procotol_Chain(void)
 			return 2 ;				//ILLEGAL DATA ADDRESS
 		
 		wReg[reg_adr] = data_len ;
-		bSaved = 1 ;
+
+		if ( reg_adr >= 100 )
+			bSaved = 1 ;
 		trans_len = 8 ;
 		return 0 ;
 	}	
@@ -347,7 +349,10 @@ static u8	Modbus_Procotol_Chain(void)
 			*ptrReg |= (*ptr++) ;
 			ptrReg++ ;
 		}
-		bSaved = 1 ;
+				
+		if ( reg_adr >= 100 )
+			bSaved = 1 ;
+			
 		trans_len = 8 ;		
 		return 0 ;
 	}
