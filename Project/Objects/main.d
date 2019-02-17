@@ -36,3 +36,5 @@
 .\objects\main.o: ..\User\..\bsp\adc.h
 .\objects\main.o: ..\User\modbus_svr.h
 .\objects\main.o: D:\ExtProgram\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: ..\User\Thruster0.h
+.\objects\main.o: ..\User\rtwtypes.h

@@ -69,26 +69,15 @@ void SysTick_Handler(void)
 	int i;
 
 	ModbusTimer();
-	ulTicks++ ;
+	ulTicks++;
 
 	if (!TimingDelay)
 		TimingDelay--;
 
 	for (i = 0; i < TIMER_NUM; i++)
 	{
-		if (TimeCur[i])
-		{
-			if (TimeCur[i] == 1)
-				TimerFlag[i] = 1;
-			if (TimeCur[i] == TimeShift[i])
-				TimerSFlag[i] = 1;
+		if (TimeCur[i] > 1)
 			TimeCur[i]--;
-		}
-		else
-		{
-			TimerSFlag[i] = 0;
-			TimeCur[i] = TimePre[i];
-		}
 	}
 }
 
@@ -101,8 +90,8 @@ void SetTimer(u8 no, u16 val)
 {
 	if (no < TIMER_NUM)
 	{
-		TimePre[no] = val;
-		TimeCur[no] = val;
+		TimePre[no] = val + 1;
+		TimeCur[no] = val + 1;
 	}
 }
 
@@ -129,14 +118,12 @@ void SetTimerVal(u8 no, u16 val, u16 ShiftVal)
 //-------------------------------------------------------------------------------
 u16 GetTimer(u8 no)
 {
-
-	if (no < TIMER_NUM && TimerFlag[no])
+	if (no < TIMER_NUM && TimeCur[no] == 1)
 	{
-		TimerFlag[no] = 0;
+		TimeCur[no] = TimePre[no];
 		return 1;
 	}
-	else
-		return 0;
+	return 0;
 }
 
 //-------------------------------------------------------------------------------
